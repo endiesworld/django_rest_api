@@ -16,9 +16,10 @@ Including another URLconf
 
 from unicodedata import name
 from django.urls import path
-from movie_app.api.views import movie_list, movie_detials
+# from movie_app.api.views import movie_list, movie_detials
+from movie_app.api.views import MovieListAV, MovieDetailsAV
 
 urlpatterns = [
-    path('list/', movie_list, name='list of all movies'),
-    path('<int:pk>', movie_detials, name='movie details')
+    path('list/', MovieListAV.as_view(), name='list of all movies'),
+    path('<int:pk>',  MovieDetailsAV.as_view(), name='movie details')
 ]
