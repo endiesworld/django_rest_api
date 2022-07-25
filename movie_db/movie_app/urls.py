@@ -16,8 +16,9 @@ Including another URLconf
 
 from unicodedata import name
 from django.urls import path
-from movie_app.views import movie_list
+from movie_app.views import movie_list, movie_detials
 
 urlpatterns = [
-    path('list/', movie_list, name='list of all movies')
+    path('list/', movie_list, name='list of all movies'),
+    path('<int:pk>', movie_detials, name='movie details')
 ]
