@@ -35,9 +35,17 @@ from movie_app.models import Movie
 #         return data
 
 class MovieSerializer(serializers.ModelSerializer):
+
+    len_name = serializers.SerializerMethodField()
+
     class Meta:
         model = Movie
         fields = "__all__"
+        # fields = ['id', 'name', 'decription']
+        # exclude = ['active']
+
+    def get_len_name(self, object):
+        return len(object.name)
 
     def validate_name(slef, value):
         if len(value) < 3:
