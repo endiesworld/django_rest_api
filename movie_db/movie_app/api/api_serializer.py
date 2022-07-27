@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from movie_app.models import Movie
+from movie_app.models import WatchList, StreamPlatform
 
 
 # class MovieSerializer(serializers.Serializer):
@@ -34,30 +34,42 @@ from movie_app.models import Movie
 #                 "Movie name and description cannot be the same")
 #         return data
 
-class MovieSerializer(serializers.ModelSerializer):
+class WatchListSerializer(serializers.ModelSerializer):
 
     len_name = serializers.SerializerMethodField()
 
     class Meta:
-        model = Movie
+        model = WatchList
         fields = "__all__"
         # fields = ['id', 'name', 'decription']
         # exclude = ['active']
 
-    def get_len_name(self, object):
-        return len(object.name)
+    # def get_len_name(self, object):
+    #     return len(object.name)
 
-    def validate_name(slef, value):
-        if len(value) < 3:
-            raise serializers.ValidationError('Movie name too short')
-        else:
-            return value
+    # def validate_name(slef, value):
+    #     if len(value) < 3:
+    #         raise serializers.ValidationError('Movie name too short')
+    #     else:
+    #         return value
 
-    def validate(self, data):
-        """
-        Check that start is before finish.
-        """
-        if data['name'] == data['decription']:
-            raise serializers.ValidationError(
-                "Movie name and description cannot be the same")
-        return data
+    # def validate(self, data):
+    #     """
+    #     Check that start is before finish.
+    #     """
+    #     if data['name'] == data['decription']:
+    #         raise serializers.ValidationError(
+    #             "Movie name and description cannot be the same")
+    #     return data
+
+
+# ====================== SERIALIZER CLASS FOR StreamPlatform ======================
+
+
+class StreamPlatformSerializer(serializers.ModelSerializer):
+
+    len_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = StreamPlatform
+        fields = "__all__"
