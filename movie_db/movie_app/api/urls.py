@@ -20,8 +20,8 @@ from django.urls import path
 from movie_app.api.views import WatchListDetailsAV, WatchListAV, StreamPlatformAV, StreamPlatformDetailsAV
 
 urlpatterns = [
-    path('list/', WatchListAV.as_view(), name='list of all movies'),
-    path('<int:pk>',  WatchListDetailsAV.as_view(), name='movie details'),
+    path('movies/', WatchListAV.as_view(), name='list of all movies'),
+    path('movies/<int:pk>',  WatchListDetailsAV.as_view(), name='movie details'),
     path('stream',  StreamPlatformAV.as_view(), name='stream platform'),
     path('stream/<int:pk>',  StreamPlatformDetailsAV.as_view(),
          name='stream platform details')
