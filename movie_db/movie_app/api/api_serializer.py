@@ -36,7 +36,7 @@ from movie_app.models import WatchList, StreamPlatform
 
 class WatchListSerializer(serializers.ModelSerializer):
 
-    len_name = serializers.SerializerMethodField()
+    # len_name = serializers.SerializerMethodField()
 
     class Meta:
         model = WatchList
@@ -68,7 +68,7 @@ class WatchListSerializer(serializers.ModelSerializer):
 
 class StreamPlatformSerializer(serializers.ModelSerializer):
 
-    len_name = serializers.SerializerMethodField()
+    # len_name = serializers.SerializerMethodField()
 
     class Meta:
         model = StreamPlatform
